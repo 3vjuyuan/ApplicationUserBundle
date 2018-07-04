@@ -1,0 +1,12 @@
+application_user_frontend_user:
+    type: rest
+    resource: Savwy\SuluBundle\ApplicationUserBundle\Controller\FrontendUserController
+application_user_backend_user:
+    type: rest
+    resource: Savwy\SuluBundle\ApplicationUserBundle\Controller\BackendUserController
+application_user_frontend_group:
+    type: rest
+    resource: Savwy\SuluBundle\ApplicationUserBundle\Controller\FrontendGroupController
+application_user_backend_group:
+    type: rest
+    resource: Savwy\SuluBundle\ApplicationUserBundle\Controller\BackendGroupController

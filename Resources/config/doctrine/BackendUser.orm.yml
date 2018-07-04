@@ -1,0 +1,35 @@
+Savwy\SuluBundle\ApplicationUserBundle\Entity\BackendUser:
+  type: entity
+  table: appuser_be_users
+  fields:
+    userType:
+      type: string
+      options:
+        comment: The user type of the backend user, it can be used with class name or a registry key of factory pattern
+    lastLoginLocation:
+      type: string
+      options:
+        comment: The last login location
+    accessToken:
+      type: string
+      length: 64
+      options:
+        fixed: true
+        comment: The access token of the user
+    twoFactorAuth:
+      type: boolean
+      options:
+        default: false
+        comment: The flag for two factor authentication
+  manyToMany:
+    groups:
+      targetEntity: FrontendGroup
+      joinTable:
+        name: appuser_be_users_groups
+        joinColumns:
+          user_id:
+            referencedColumnName: uid
+        inverseJoinColumns:
+          group_id:
+            referencedColumnName: uid
+

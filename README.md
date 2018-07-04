@@ -1,0 +1,2 @@
+# ApplicationUserBundle for Sulu CMS
+

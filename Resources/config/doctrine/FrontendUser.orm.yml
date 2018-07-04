@@ -1,0 +1,21 @@
+Savwy\SuluBundle\ApplicationUserBundle\Entity\FrontendUser:
+  type: entity
+  table: appuser_fe_users
+  fields:
+    lockToWebspace:
+      type: string
+      nullable: false
+      options:
+        comment: The webspace that the user is created on and can access
+  manyToMany:
+    groups:
+      targetEntity: FrontendGroup
+      joinTable:
+        name: appuser_fe_users_groups
+        joinColumns:
+          user_id:
+            referencedColumnName: uid
+        inverseJoinColumns:
+          group_id:
+            referencedColumnName: uid
+

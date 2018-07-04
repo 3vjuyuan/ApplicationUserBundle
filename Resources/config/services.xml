@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="savwy_application_user.content-type.user_group.template">ApplicationUserBundle:Template:content-types/group-selection.html.twig</parameter>
+    </parameters>
+    <services>
+        <service id="savwy_application_user.admin"
+                 class="Savwy\SuluBundle\ApplicationUserBundle\Admin\ApplicationUserAdmin">
+            <argument>%sulu_admin.name%</argument>
+
+            <tag name="sulu.admin"/>
+        </service>
+
+        <!--<service id="frontend_user.manager" class="Savwy\SuluBundle\ApplicationUserBundle\FrontendUser\UserManager">-->
+            <!--<argument type="service" id="doctrine.orm.entity_manager"/>-->
+        <!--</service>-->
+        <!--<service id="frontend_user_supplier.manager"-->
+                 <!--class="Savwy\SuluBundle\ApplicationUserBundle\FrontendUser\SupplierManager">-->
+            <!--<argument type="service" id="doctrine.orm.entity_manager"/>-->
+        <!--</service>-->
+        <!--<service id="frontend_user_group.manager" class="Savwy\SuluBundle\ApplicationUserBundle\FrontendUser\GroupManager">-->
+            <!--<argument type="service" id="doctrine.orm.entity_manager"/>-->
+        <!--</service>-->
+
+        <!--<service id="frontend_user_setting.manager" class="Savwy\SuluBundle\ApplicationUserBundle\FrontendUser\SettingManager">-->
+            <!--<argument>%mailer_host%</argument>-->
+            <!--<argument>%frontend_user_setting%</argument>-->
+            <!--<argument type="service" id="session"/>-->
+            <!--<argument type="service" id="twig"/>-->
+        <!--</service>-->
+
+        <!--<service id="savwy_application_user.content.user_group" class="Savwy\SuluBundle\ApplicationUserBundle\Content\Types\UserGroupContentType">-->
+            <!--<argument>%savwy_application_user.content-type.user_group.template%</argument>-->
+            <!--<argument type="service" id="frontend_user_group.manager"/>-->
+            <!--<argument type="service" id="serializer"/>-->
+
+            <!--<tag name="sulu.content.type" alias="app_user_group"/>-->
+        <!--</service>-->
+    </services>
+</container>

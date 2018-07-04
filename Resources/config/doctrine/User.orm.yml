@@ -1,0 +1,99 @@
+Savwy\SuluBundle\ApplicationUserBundle\Entity\User:
+  type: mappedSuperclass
+  indexes:
+    name_index:
+      columns:
+        - username
+        - email
+  uniqueConstraints:
+    user_info_unique:
+      columns:
+        - username
+        - email
+        - phone
+  id:
+    uid:
+      type: integer
+      options:
+        comment: The id of user
+      generator:
+        strategy: AUTO
+  fields:
+    username:
+      type: string
+      unique: true
+      nullable: false
+      length: 32
+      options:
+        comment: The username
+    password:
+      type: string
+      nullable: false
+      length: 128
+      options:
+        comment: The user password
+    salt:
+      type: string
+      nullable: false
+      length: 32
+      options:
+        fixed: true
+        comment: The salt for password
+    email:
+      type: string
+      unique: true
+      options:
+        comment: The user email
+    phone:
+      type: string
+      unique: true
+      options:
+        comment: The telephone number of user
+    confirmationKey:
+      type: string
+      length: 32
+      options:
+        comment: The confirmation key for the user, for usage of register confirmation, reset password
+    confirmationKeyExpiration:
+      type: integer
+      options:
+        comment: The expiration time of confirmation key
+    creation:
+      type: integer
+      nullable: false
+      options:
+        comment: The time, when the user was created
+    locked:
+      type: boolean
+      nullable: false
+      options:
+        default: false
+        comment: The flag, if the used is locked for login
+    lockExpiration:
+      type: integer
+      options:
+        comment: The expiration time of lock status
+    disabled:
+      type: boolean
+      nullable: false
+      options:
+        default: false
+        comment: The flag, if the used is disabled
+    deleted:
+      type: boolean
+      nullable: false
+      options:
+        default: false
+        comment: The flag, if the used is deleted
+    lastLogin:
+      type: integer
+      options:
+        comment: The time of last login
+    userConfig:
+      type: json_array
+      options:
+        comment: The addtional user configurations
+    secretSettings:
+      type: json_array
+      options:
+        comment: The addtional secret settings of the fronted user, e.x. the answers to the secret questions

@@ -1,0 +1,29 @@
+Savwy\SuluBundle\ApplicationUserBundle\Entity\BackendGroup:
+  type: entity
+  table: appuser_be_groups
+  fields:
+    rights:
+      type: integer
+      nullable: false
+      options:
+        default: 0
+        comment: The applcation operation rights for the group
+    lockToLanguage:
+      type: string
+      options:
+        comment: The language that the group is limited to
+    lockToWebspace:
+      type: string
+      options:
+        comment: The webspaces that the group is limited to
+    lockToIPRange:
+      type: string
+      options:
+        comment: The IP range that the group is allowed
+  # Define the many to one mapping
+  manyToOne:
+    pid:
+      targetEntity: BackendGroup
+      joinColumn:
+        name: pid
+        referencedColumnName: uid

@@ -1,0 +1,45 @@
+Savwy\SuluBundle\ApplicationUserBundle\Entity\GraphPath:
+  type: entity
+  table: appuser_graph_path
+  indexes:
+    user_id_index:
+      columns:
+        - user_id
+  id:
+    uuid:
+      type: string
+      length: 64
+      options:
+        fixed: true
+        comment: The graph path uuid
+      generator:
+        strategy: CUSTOM
+      customIdGenerator:
+        class: Savwy\SuluBundle\ApplicationUserBundle\Helper\SimpleCryptUuidGenerator
+  fields:
+    userId:
+      type: string
+      column: user_id
+      nullable: false
+      length: 32
+      options:
+        comment: The user id from user tables
+    pathName:
+      type: string
+      nullable: false
+      length: 32
+      options:
+        fixed: true
+        comment: The salt for password
+    targetType:
+      type: string
+      nullable: false
+      length: 32
+      options:
+        fixed: true
+        comment: The salt for password
+    targetId:
+      type: string
+      nullable: false
+      options:
+        comment: The frontend user password

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="navigation.applicationUser" resname="navigation.applicationUser">
+                <source>navigation.applicationUser</source>
+                <target>Application Users</target>
+            </trans-unit>
+            <trans-unit id="navigation.applicationUser.frontendUser" resname="navigation.applicationUser.frontendUser">
+                <source>navigation.applicationUser.frontendUser</source>
+                <target>Frontend User</target>
+            </trans-unit>
+            <trans-unit id="navigation.applicationUser.frontendGroup" resname="navigation.applicationUser.frontendGroup">
+                <source>navigation.applicationUser.frontendGroup</source>
+                <target>Frontend User Group</target>
+            </trans-unit>
+            <trans-unit id="navigation.applicationUser.backendUser" resname="navigation.applicationUser.backendUser">
+                <source>navigation.applicationUser.backendUser</source>
+                <target>Backend User</target>
+            </trans-unit>
+            <trans-unit id="navigation.applicationUser.backendGroup" resname="navigation.applicationUser.backendGroup">
+                <source>navigation.applicationUser.backendGroup</source>
+                <target>Backend User Group</target>
+            </trans-unit>
+
+            <trans-unit id="4" resname="user.userName">
+                <source>user.userName</source>
+                <target>User Name</target>
+            </trans-unit>
+            <trans-unit id="5" resname="user.password">
+                <source>user.password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="6" resname="user.fullName">
+                <source>user.fullName</source>
+                <target>Full Name</target>
+            </trans-unit>
+            <trans-unit id="7" resname="user.phone">
+                <source>user.phone</source>
+                <target>Phone</target>
+            </trans-unit>
+            <trans-unit id="8" resname="user.email">
+                <source>user.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="9" resname="user.createTime">
+                <source>user.createTime</source>
+                <target>Create Time</target>
+            </trans-unit>
+            <trans-unit id="10" resname="user.updateTime">
+                <source>user.updateTime</source>
+                <target>Update Time</target>
+            </trans-unit>
+            <trans-unit id="11" resname="user.userInfo">
+                <source>user.userInfo</source>
+                <target>Json Info</target>
+            </trans-unit>
+            <trans-unit id="12" resname="frontend.user.headline">
+                <source>frontend.user.headline</source>
+                <target>Frontend User</target>
+            </trans-unit>
+            <trans-unit id="13" resname="user.media">
+                <source>user.media</source>
+                <target>User Avatar</target>
+            </trans-unit>
+            <trans-unit id="14" resname="user.passwordRepeat">
+                <source>user.passwordRepeat</source>
+                <target>Reset Password</target>
+            </trans-unit>
+            <trans-unit id="15" resname="frontend.user.group.headline">
+                <source>frontend.user.group.headline</source>
+                <target>User Group</target>
+            </trans-unit>
+            <trans-unit id="16" resname="group.groupName">
+                <source>group.groupName</source>
+                <target>Group Name</target>
+            </trans-unit>
+            <trans-unit id="17" resname="group.groupPath">
+                <source>group.groupPath</source>
+                <target>Group Path</target>
+            </trans-unit>
+            <trans-unit id="18" resname="group.parentId">
+                <source>group.parentId</source>
+                <target>Parent Id</target>
+            </trans-unit>
+            <trans-unit id="19" resname="user.group">
+                <source>user.group</source>
+                <target>User Group</target>
+            </trans-unit>
+            <trans-unit id="20" resname="navigation.frontendUser.supplier">
+                <source>navigation.frontendUser.supplier</source>
+                <target>Supplier</target>
+            </trans-unit>
+            <trans-unit id="21" resname="frontend.supplier.headline">
+                <source>frontend.supplier.headline</source>
+                <target>Supplier</target>
+            </trans-unit>
+            <trans-unit id="22" resname="user.status">
+                <source>user.status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="23" resname="user.statusInactive">
+                <source>user.statusInactive</source>
+                <target>Inactive</target>
+            </trans-unit>
+            <trans-unit id="24" resname="user.statusActivated">
+                <source>user.statusActivated</source>
+                <target>Activated</target>
+            </trans-unit>
+            <trans-unit id="25" resname="user.statusAuthentication">
+                <source>user.statusAuthentication</source>
+                <target>Authentication</target>
+            </trans-unit>
+            <trans-unit id="26" resname="supplier.userType">
+                <source>supplier.userType</source>
+                <target>Supplier Type</target>
+            </trans-unit>
+            <trans-unit id="27" resname="supplier.correlationId">
+                <source>supplier.correlationId</source>
+                <target>Correlation Pinna Supplier Id</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,41 @@
+Savwy\SuluBundle\ApplicationUserBundle\Entity\UserGroup:
+  type: mappedSuperclass
+  id:
+    uid:
+      type: integer
+      options:
+        comment: The id of the group
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      nullable: false
+      length: 255
+      options:
+        comment: The name for the group
+    description:
+      type: string
+      options:
+        default: ''
+        comment: Description of the the group
+    deleted:
+      type: boolean
+      nullable: false
+      options:
+        default: false
+        comment: The flag of the group, if it is deleted
+    changeTime:
+      type: integer
+      nullable: false
+      options:
+        unsigned: true
+        comment: The last updated time of the group, including the creation time
+    groupConfig:
+      type: json_array
+      options:
+        comment: The addtional group configurations
+
+  # Define the life cycle callback methods
+  lifecycleCallbacks:
+    prePersist: [setPropertiesBeforePersist]

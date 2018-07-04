@@ -1,0 +1,15 @@
+Savwy\SuluBundle\ApplicationUserBundle\Entity\FrontendGroup:
+  type: entity
+  table: appuser_fe_groups
+  fields:
+    allowedWebspaces:
+      type: string
+      options:
+        comment: The webspaces that the group can access
+  # Define the many to one mapping
+  manyToOne:
+    pid:
+      targetEntity: FrontendGroup
+      joinColumn:
+        name: pid
+        referencedColumnName: uid
