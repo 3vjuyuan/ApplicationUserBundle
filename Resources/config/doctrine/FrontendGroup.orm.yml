@@ -12,4 +12,4 @@ Savwy\SuluBundle\ApplicationUserBundle\Entity\FrontendGroup:
       targetEntity: FrontendGroup
       joinColumn:
         name: pid
-        referencedColumnName: uid
+        referencedColumnName: id

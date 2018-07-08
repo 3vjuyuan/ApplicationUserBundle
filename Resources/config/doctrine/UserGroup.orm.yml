@@ -1,7 +1,7 @@
 Savwy\SuluBundle\ApplicationUserBundle\Entity\UserGroup:
   type: mappedSuperclass
   id:
-    uid:
+    id:
       type: integer
       options:
         comment: The id of the group
@@ -11,6 +11,7 @@ Savwy\SuluBundle\ApplicationUserBundle\Entity\UserGroup:
     name:
       type: string
       nullable: false
+      unique: true
       length: 255
       options:
         comment: The name for the group

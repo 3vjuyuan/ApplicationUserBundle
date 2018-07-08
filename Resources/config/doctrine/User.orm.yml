@@ -12,7 +12,7 @@ Savwy\SuluBundle\ApplicationUserBundle\Entity\User:
         - email
         - phone
   id:
-    uid:
+    id:
       type: integer
       options:
         comment: The id of user
@@ -49,31 +49,12 @@ Savwy\SuluBundle\ApplicationUserBundle\Entity\User:
       unique: true
       options:
         comment: The telephone number of user
-    confirmationKey:
-      type: string
-      length: 32
-      options:
-        comment: The confirmation key for the user, for usage of register confirmation, reset password
-    confirmationKeyExpiration:
-      type: integer
-      options:
-        comment: The expiration time of confirmation key
     creation:
       type: integer
       nullable: false
       options:
         comment: The time, when the user was created
-    locked:
-      type: boolean
-      nullable: false
-      options:
-        default: false
-        comment: The flag, if the used is locked for login
-    lockExpiration:
-      type: integer
-      options:
-        comment: The expiration time of lock status
-    disabled:
+    enabled:
       type: boolean
       nullable: false
       options:
@@ -85,15 +66,29 @@ Savwy\SuluBundle\ApplicationUserBundle\Entity\User:
       options:
         default: false
         comment: The flag, if the used is deleted
+    locked:
+      type: boolean
+      nullable: false
+      options:
+        default: false
+        comment: The flag, if the used is locked for login
+    lockExpiration:
+      type: integer
+      nullable: true
+      options:
+        comment: The expiration time of lock status
     lastLogin:
       type: integer
+      nullable: true
       options:
         comment: The time of last login
     userConfig:
       type: json_array
+      nullable: true
       options:
         comment: The addtional user configurations
     secretSettings:
       type: json_array
+      nullable: true
       options:
         comment: The addtional secret settings of the fronted user, e.x. the answers to the secret questions

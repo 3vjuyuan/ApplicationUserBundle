@@ -14,8 +14,7 @@ Savwy\SuluBundle\ApplicationUserBundle\Entity\FrontendUser:
         name: appuser_fe_users_groups
         joinColumns:
           user_id:
-            referencedColumnName: uid
+            referencedColumnName: id
         inverseJoinColumns:
           group_id:
-            referencedColumnName: uid
-
+            referencedColumnName: id

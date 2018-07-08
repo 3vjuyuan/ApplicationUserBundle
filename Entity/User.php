@@ -24,69 +24,21 @@
 namespace Savwy\SuluBundle\ApplicationUserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use FOS\UserBundle\Model\User as BaseUser;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 
 /**
  * @ExclusionPolicy("all")
  */
-abstract class User
+abstract class User extends BaseUser
 {
-    /**
-     * @var integer
-     *
-     *@Expose
-     */
-    protected $uid;
-
-    /**
-     * @var string
-     *
-     * @Expose
-     */
-    protected $username;
-
-    /**
-     * @var string
-     *
-     * @Expose
-     */
-    protected $password;
-
-    /**
-     * @var string
-     *
-     * @Expose
-     */
-    protected $salt;
-
-    /**
-     * @var string
-     *
-     * @Expose
-     */
-    protected $email;
-
     /**
      * @var string
      *
      * @Expose
      */
     protected $phone;
-
-    /**
-     * @var string
-     *
-     * @Expose
-     */
-    protected $confirmationKey;
-
-    /**
-     * @var string
-     *
-     * @Expose
-     */
-    protected $confirmationKeyExpiration;
 
     /**
      * @var integer
@@ -108,13 +60,6 @@ abstract class User
      * @Expose
      */
     protected $lockExpiration;
-
-    /**
-     * @var boolean
-     *
-     * @Expose
-     */
-    protected $disabled;
 
     /**
      * @var boolean
@@ -151,135 +96,8 @@ abstract class User
 
     public function __construct()
     {
+        parent::__construct();
         $this->groups = new ArrayCollection();
-    }
-
-    /**
-     * @return int
-     */
-    public function getUid(): int
-    {
-        return $this->uid;
-    }
-
-    /**
-     * @param int $uid
-     */
-    public function setUid(int $uid): void
-    {
-        $this->uid = $uid;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUsername(): string
-    {
-        return $this->username;
-    }
-
-    /**
-     * @param string $username
-     */
-    public function setUsername(string $username): void
-    {
-        $this->username = $username;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string $password
-     */
-    public function setPassword(string $password): void
-    {
-        $this->password = $password;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSalt(): string
-    {
-        return $this->salt;
-    }
-
-    /**
-     * @param string $salt
-     */
-    public function setSalt(string $salt): void
-    {
-        $this->salt = $salt;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string $email
-     */
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPhone(): string
-    {
-        return $this->phone;
-    }
-
-    /**
-     * @param string $phone
-     */
-    public function setPhone(string $phone): void
-    {
-        $this->phone = $phone;
-    }
-
-    /**
-     * @return string
-     */
-    public function getConfirmationKey(): string
-    {
-        return $this->confirmationKey;
-    }
-
-    /**
-     * @param string $confirmationKey
-     */
-    public function setConfirmationKey(string $confirmationKey): void
-    {
-        $this->confirmationKey = $confirmationKey;
-    }
-
-    /**
-     * @return string
-     */
-    public function getConfirmationKeyExpiration(): string
-    {
-        return $this->confirmationKeyExpiration;
-    }
-
-    /**
-     * @param string $confirmationKeyExpiration
-     */
-    public function setConfirmationKeyExpiration(string $confirmationKeyExpiration): void
-    {
-        $this->confirmationKeyExpiration = $confirmationKeyExpiration;
     }
 
     /**
@@ -296,6 +114,38 @@ abstract class User
     public function setCreation(int $creation): void
     {
         $this->creation = $creation;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDeleted(): bool
+    {
+        return $this->deleted;
+    }
+
+    /**
+     * @param bool $deleted
+     */
+    public function setDeleted(bool $deleted): void
+    {
+        $this->deleted = $deleted;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param string $phone
+     */
+    public function setPhone(string $phone): void
+    {
+        $this->phone = $phone;
     }
 
     /**
@@ -331,38 +181,6 @@ abstract class User
     }
 
     /**
-     * @return bool
-     */
-    public function isDisabled(): bool
-    {
-        return $this->disabled;
-    }
-
-    /**
-     * @param bool $disabled
-     */
-    public function setDisabled(bool $disabled): void
-    {
-        $this->disabled = $disabled;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isDeleted(): bool
-    {
-        return $this->deleted;
-    }
-
-    /**
-     * @param bool $deleted
-     */
-    public function setDeleted(bool $deleted): void
-    {
-        $this->deleted = $deleted;
-    }
-
-    /**
      * @return int
      */
     public function getLastLogin(): int
@@ -371,11 +189,13 @@ abstract class User
     }
 
     /**
-     * @param int $lastLogin
+     * {@inheritdoc}
      */
-    public function setLastLogin(int $lastLogin): void
+    public function setLastLogin(\DateTime $time = null)
     {
-        $this->lastLogin = $lastLogin;
+        $this->lastLogin = $time ? $time->getTimestamp() : time();
+
+        return $this;
     }
 
     /**
@@ -409,4 +229,5 @@ abstract class User
     {
         $this->secretSettings = $secretSettings;
     }
+
 }

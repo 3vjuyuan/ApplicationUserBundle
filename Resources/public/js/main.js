@@ -15,106 +15,47 @@ define(function () {
         initialize: function (app) {
             app.components.addSource('applicationuser', '/bundles/applicationuser/js/components');
 
-            // Frontend users list view
-            app.sandbox.mvc.routes.push({
-                route: 'appUser/frontedUser',
-                callback: function() {
-                    return '<div data-aura-component="frontend/users@applicationuser"/>';
+            let sandbox = app.sandbox;
 
+            // Frontend users list view
+            sandbox.mvc.routes.push({
+                route: 'app-user/fronted-users',
+                callback: function() {
+                    return '<div data-aura-component="frontend/users/list@applicationuser"/>';
+
+                }
+            });
+
+            sandbox.mvc.routes.push({
+                route: 'app-user/fronted-users/add',
+                callback: function() {
+                    return '<div data-aura-component="frontend/users/edit@applicationuser"/>';
                 }
             });
 
             // Frontend user groups list view
-            app.sandbox.mvc.routes.push({
-                route: 'appUser/frontendGroup',
+            sandbox.mvc.routes.push({
+                route: 'app-user/frontend-groups',
                 callback: function() {
-                    return '<div data-aura-component="frontend/groups@applicationuser"/>';
+                    return '<div data-aura-component="frontend/groups/list@applicationuser"/>';
                 }
             });
 
             // Backend users list view
-            app.sandbox.mvc.routes.push({
-                route: 'appUser/backendUser',
+            sandbox.mvc.routes.push({
+                route: 'app-user/backend-users',
                 callback: function() {
                     return '<div data-aura-component="backend/users@applicationuser"/>';
                 }
             });
 
             // Backend user groups list view
-            app.sandbox.mvc.routes.push({
-                route: 'appUser/backendGroup',
+            sandbox.mvc.routes.push({
+                route: 'app-user/backend-groups',
                 callback: function() {
                     return '<div data-aura-component="backend/groups@applicationuser"/>';
                 }
             });
         }
-
-        // initialize: function (app) {
-        //
-        //     app.components.addSource('frontenduser', '/bundles/applicationuser/js/components');
-        //
-        //     app.sandbox.mvc.routes.push({
-        //         route: 'frontend/user',
-        //         callback: function () {
-        //             return '<div data-aura-component="user/list@frontenduser" data-aura-name="sulu" />';
-        //         }
-        //     });
-        //
-        //     app.sandbox.mvc.routes.push({
-        //         route: 'frontend/user/add',
-        //         callback: function () {
-        //             return '<div data-aura-component="user/form@frontenduser"/>';
-        //         }
-        //     });
-        //
-        //     app.sandbox.mvc.routes.push({
-        //         route: 'frontend/user/edit::id',
-        //         callback: function (id) {
-        //             return '<div data-aura-component="user/form@frontenduser" data-aura-id="' + id + '"/>';
-        //         }
-        //     });
-        //
-        //     app.sandbox.mvc.routes.push({
-        //         route: 'frontend/supplier',
-        //         callback: function () {
-        //             return '<div data-aura-component="supplier/list@frontenduser" data-aura-name="sulu" />';
-        //         }
-        //     });
-        //
-        //     app.sandbox.mvc.routes.push({
-        //         route: 'frontend/supplier/add',
-        //         callback: function () {
-        //             return '<div data-aura-component="supplier/form@frontenduser"/>';
-        //         }
-        //     });
-        //
-        //     app.sandbox.mvc.routes.push({
-        //         route: 'frontend/supplier/edit::id',
-        //         callback: function (id) {
-        //             return '<div data-aura-component="supplier/form@frontenduser" data-aura-id="' + id + '"/>';
-        //         }
-        //     });
-        //
-        //     app.sandbox.mvc.routes.push({
-        //         route: 'frontend/group',
-        //         callback: function () {
-        //             return '<div data-aura-component="group/list@frontenduser" data-aura-name="sulu" />';
-        //         }
-        //     });
-        //
-        //     app.sandbox.mvc.routes.push({
-        //         route: 'frontend/group/add',
-        //         callback: function () {
-        //             return '<div data-aura-component="group/form@frontenduser"/>';
-        //         }
-        //     });
-        //
-        //     app.sandbox.mvc.routes.push({
-        //         route: 'frontend/group/edit::id',
-        //         callback: function (id) {
-        //             return '<div data-aura-component="group/form@frontenduser" data-aura-id="' + id + '"/>';
-        //         }
-        //     });
-        // }
     };
 });

@@ -23,21 +23,15 @@
 
 namespace Savwy\SuluBundle\ApplicationUserBundle\Entity;
 
+use FOS\UserBundle\Model\Group as BaseGroup;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 
 /**
  * @ExclusionPolicy("all")
  */
-abstract class UserGroup
+abstract class UserGroup extends BaseGroup
 {
-    /**
-     * @var integer
-     *
-     * @Expose
-     */
-    protected $uid;
-
     /**
      * @var integer
      *
@@ -81,22 +75,6 @@ abstract class UserGroup
     /**
      * @return int
      */
-    public function getUid(): int
-    {
-        return $this->uid;
-    }
-
-    /**
-     * @param int $uid
-     */
-    public function setUid(int $uid): void
-    {
-        $this->uid = $uid;
-    }
-
-    /**
-     * @return int
-     */
     public function getPid(): int
     {
         return $this->pid;
@@ -121,7 +99,7 @@ abstract class UserGroup
     /**
      * @param string $name
      */
-    public function setName(string $name): void
+    public function setName($name): void
     {
         $this->name = $name;
     }

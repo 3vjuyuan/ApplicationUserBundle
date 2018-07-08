@@ -23,6 +23,20 @@
                 <target>后台用户组</target>
             </trans-unit>
 
+            <trans-unit id="application_user.fields.user.username" resname="application_user.fields.user.username">
+                <source>application_user.fields.user.username</source>
+                <target>用户名</target>
+            </trans-unit>
+
+            <trans-unit id="application_user.user.frontend.headline" resname="application_user.user.frontend.headline">
+                <source>application_user.user.frontend.headline</source>
+                <target>前台用户管理</target>
+            </trans-unit>
+            <trans-unit id="application_user.user.backend.headline" resname="application_user.user.backend.headline">
+                <source>application_user.user.backend.headline</source>
+                <target>后台用户管理</target>
+            </trans-unit>
+
             <trans-unit id="4" resname="user.userName">
                 <source>user.userName</source>
                 <target>用户名</target>
@@ -55,10 +69,7 @@
                 <source>user.userInfo</source>
                 <target>Json 信息</target>
             </trans-unit>
-            <trans-unit id="12" resname="frontend.user.headline">
-                <source>frontend.user.headline</source>
-                <target>前台用户</target>
-            </trans-unit>
+
             <trans-unit id="13" resname="user.media">
                 <source>user.media</source>
                 <target>用户头像</target>

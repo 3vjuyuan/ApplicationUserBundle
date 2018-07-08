@@ -13,9 +13,12 @@
             <tag name="sulu.admin"/>
         </service>
 
-        <!--<service id="frontend_user.manager" class="Savwy\SuluBundle\ApplicationUserBundle\FrontendUser\UserManager">-->
-            <!--<argument type="service" id="doctrine.orm.entity_manager"/>-->
-        <!--</service>-->
+        <service id="savwy_application_user.frontend_user_manager" class="Savwy\SuluBundle\ApplicationUserBundle\Manager\FrontendUserManager">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+        </service>
+        <service id="savwy_application_user.backend_user_manager" class="Savwy\SuluBundle\ApplicationUserBundle\Manager\BackendUserManager">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+        </service>
         <!--<service id="frontend_user_supplier.manager"-->
                  <!--class="Savwy\SuluBundle\ApplicationUserBundle\FrontendUser\SupplierManager">-->
             <!--<argument type="service" id="doctrine.orm.entity_manager"/>-->
@@ -33,7 +36,7 @@
 
         <!--<service id="savwy_application_user.content.user_group" class="Savwy\SuluBundle\ApplicationUserBundle\Content\Types\UserGroupContentType">-->
             <!--<argument>%savwy_application_user.content-type.user_group.template%</argument>-->
-            <!--<argument type="service" id="frontend_user_group.manager"/>-->
+            <!--<argument type="service" id="savwy_application_user..manager"/>-->
             <!--<argument type="service" id="serializer"/>-->
 
             <!--<tag name="sulu.content.type" alias="app_user_group"/>-->

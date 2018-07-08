@@ -23,6 +23,20 @@
                 <target>Backend User Group</target>
             </trans-unit>
 
+            <trans-unit id="application_user.fields.user.username" resname="application_user.fields.user.username">
+                <source>application_user.fields.user.username</source>
+                <target>Username</target>
+            </trans-unit>
+
+            <trans-unit id="application_user.user.frontend.headline" resname="application_user.user.frontend.headline">
+                <source>application_user.user.frontend.headline</source>
+                <target>Frontend User</target>
+            </trans-unit>
+            <trans-unit id="application_user.user.backend.headline" resname="application_user.user.backend.headline">
+                <source>application_user.user.backend.headline</source>
+                <target>Backend User</target>
+            </trans-unit>
+
             <trans-unit id="4" resname="user.userName">
                 <source>user.userName</source>
                 <target>User Name</target>
@@ -55,10 +69,7 @@
                 <source>user.userInfo</source>
                 <target>Json Info</target>
             </trans-unit>
-            <trans-unit id="12" resname="frontend.user.headline">
-                <source>frontend.user.headline</source>
-                <target>Frontend User</target>
-            </trans-unit>
+
             <trans-unit id="13" resname="user.media">
                 <source>user.media</source>
                 <target>User Avatar</target>

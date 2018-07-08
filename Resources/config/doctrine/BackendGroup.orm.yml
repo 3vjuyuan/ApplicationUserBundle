@@ -26,4 +26,4 @@ Savwy\SuluBundle\ApplicationUserBundle\Entity\BackendGroup:
       targetEntity: BackendGroup
       joinColumn:
         name: pid
-        referencedColumnName: uid
+        referencedColumnName: id
