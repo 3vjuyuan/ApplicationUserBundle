@@ -44,19 +44,19 @@ class ApplicationUserAdmin extends Admin
         $section->addChild($applicationUsersMenu);
 
         $user = new NavigationItem('navigation.applicationUser.frontendUser');
-        $user->setAction('appUser/frontedUser');
+        $user->setAction('app-user/fronted-users');
         $applicationUsersMenu->addChild($user);
 
         $frontendGroup = new NavigationItem('navigation.applicationUser.frontendGroup');
-        $frontendGroup->setAction('appUser/frontendGroup');
+        $frontendGroup->setAction('app-user/fronted-groups');
         $applicationUsersMenu->addChild($frontendGroup);
 
         $supplier = new NavigationItem('navigation.applicationUser.backendUser');
-        $supplier->setAction('appUser/backendUser');
+        $supplier->setAction('app-user/backend-users');
         $applicationUsersMenu->addChild($supplier);
 
         $backendGroup = new NavigationItem('navigation.applicationUser.backendGroup');
-        $backendGroup->setAction('appUser/backendGroup');
+        $backendGroup->setAction('app-user/backend-groups');
         $applicationUsersMenu->addChild($frontendGroup);
 
         $rootNavigationItem->addChild($section);

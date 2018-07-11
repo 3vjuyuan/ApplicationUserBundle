@@ -20,7 +20,16 @@
  * @author Team Delta <delta@3vjuyuan.com>
  */
 
-define(['text!./form.html'], function(form) {
+require.config({
+    paths: {
+        react: '../../applicationuser/js/libs/react',
+        'react-dom': '../../applicationuser/js/libs/react-dom',
+        'react-jsonschema-form': '../../applicationuser/js/libs/react-jsonschema-form'
+        // 'type/group-selection': '../../applicationuser/js/validation/types/group-selection'
+    }
+});
+
+define(['react', 'react-dom', 'react-jsonschema-form', 'text!./form.html'], function(React, ReactDOM, JSONSchemaForm, form) {
     return {
         defaults: {
             templates: {
@@ -57,6 +66,40 @@ define(['text!./form.html'], function(form) {
 
         render: function() {
             this.$el.html(this.templates.form({translations: this.translations}));
+            var formElement = this.$el.find('#user-form')[0],
+                reactForm = JSONSchemaForm.default;
+            const e = React.createElement;
+
+            const schema = {
+                title: "Todo",
+                type: "object",
+                required: ["title"],
+                properties: {
+                    title: {type: "string", title: "Title", default: "A new task"},
+                    done: {type: "boolean", title: "Done?", default: false}
+                }
+            };
+
+            class LikeButton extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { liked: false };
+                }
+
+                render() {
+                    if (this.state.liked) {
+                        return 'You liked this.';
+                    }
+
+                    return e(
+                        'button',
+                        { onClick: () => this.setState({ liked: true }) },
+                        'Like'
+                    );
+                }
+            }
+
+            ReactDOM.render(e(reactForm, {schema: schema}), formElement);
         }
     };
 });

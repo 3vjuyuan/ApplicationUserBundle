@@ -95,11 +95,11 @@ define(['text!./list.html'], function (list) {
         },
 
         toEdit: function (id) {
-            this.sandbox.emit('sulu.router.navigate', '/admin/api/frontends/users:' + id);
+            this.sandbox.emit('sulu.router.navigate', 'app-user/fronted-users/edit:' + id);
         },
 
         toAdd: function () {
-            this.sandbox.emit('sulu.router.navigate', '/admin/api/frontends/users');
+            this.sandbox.emit('sulu.router.navigate', 'app-user/fronted-users/add');
         },
 
         deleteItems: function (ids) {

@@ -1,6 +1,5 @@
 require.config({
     paths: {
-        applicationuser: '../../applicationuser/js'
         // 'type/group-selection': '../../applicationuser/js/validation/types/group-selection'
     }
 });
@@ -30,6 +29,14 @@ define(function () {
                 route: 'app-user/fronted-users/add',
                 callback: function() {
                     return '<div data-aura-component="frontend/users/edit@applicationuser"/>';
+                }
+            });
+
+            // show form for editing a contact
+            sandbox.mvc.routes.push({
+                route: 'app-user/fronted-users/edit::id/:content',
+                callback: function(id) {
+                    return '<div data-aura-component="frontend/users/edit@applicationuser" data-aura-id="' + id + '"/>';
                 }
             });
 
