@@ -1,10 +1,33 @@
 require.config({
     paths: {
+        applicationuser: '../../applicationuser/js',
+        applicationusercss: '../../applicationuser/css',
+
+        'vendor/react': '../../applicationuser/js/vendor/react',
+        'vendor/react-dom': '../../applicationuser/js/vendor/react-dom',
+        'vendor/react-form': '../../applicationuser/js/vendor/react-jsonschema-form',
+
+        'services/applicationuser/user-router': '../../applicationuser/js/services/user-router',
+
+
+
+
+        // 'services/applicationuser/contact-manager': '../../sulucontact/js/services/contact-manager',
+        // 'services/applicationuser/account-manager': '../../sulucontact/js/services/account-manager',
+        // 'services/applicationuser/account-router': '../../sulucontact/js/services/account-router',
+        // 'services/sulucontact/contact-router': '../../sulucontact/js/services/contact-router',
+        // 'services/sulucontact/account-delete-dialog': '../../sulucontact/js/services/account-delete-dialog',
+        //
+        // 'extensions/sulu-buttons-contactbundle': '../../sulucontact/js/extensions/sulu-buttons',
+        //
+        // 'type/customer-selection': '../../sulucontact/js/validation/types/customer-selection',
+        // 'type/contact-selection': '../../sulucontact/js/validation/types/contact-selection'
+
         // 'type/group-selection': '../../applicationuser/js/validation/types/group-selection'
     }
 });
 
-define(function () {
+define(['config'], function (Config) {
 
     'use strict';
 
@@ -12,13 +35,13 @@ define(function () {
         name: "Application User Bundle",
 
         initialize: function (app) {
-            app.components.addSource('applicationuser', '/bundles/applicationuser/js/components');
+            var sandbox = app.sandbox;
 
-            let sandbox = app.sandbox;
+            app.components.addSource('applicationuser', '/bundles/applicationuser/js/components');
 
             // Frontend users list view
             sandbox.mvc.routes.push({
-                route: 'app-user/fronted-users',
+                route: 'app-user/frontend-users',
                 callback: function() {
                     return '<div data-aura-component="frontend/users/list@applicationuser"/>';
 
@@ -26,7 +49,7 @@ define(function () {
             });
 
             sandbox.mvc.routes.push({
-                route: 'app-user/fronted-users/add',
+                route: 'app-user/frontend-users/add',
                 callback: function() {
                     return '<div data-aura-component="frontend/users/edit@applicationuser"/>';
                 }
@@ -34,7 +57,7 @@ define(function () {
 
             // show form for editing a contact
             sandbox.mvc.routes.push({
-                route: 'app-user/fronted-users/edit::id/:content',
+                route: 'app-user/frontend-users/edit::id/:content',
                 callback: function(id) {
                     return '<div data-aura-component="frontend/users/edit@applicationuser" data-aura-id="' + id + '"/>';
                 }

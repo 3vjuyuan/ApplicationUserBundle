@@ -20,16 +20,8 @@
  * @author Team Delta <delta@3vjuyuan.com>
  */
 
-require.config({
-    paths: {
-        react: '../../applicationuser/js/libs/react',
-        'react-dom': '../../applicationuser/js/libs/react-dom',
-        'react-jsonschema-form': '../../applicationuser/js/libs/react-jsonschema-form'
-        // 'type/group-selection': '../../applicationuser/js/validation/types/group-selection'
-    }
-});
+define(['text!./form.html', 'services/applicationuser/user-router'], function(form, userRouter) {
 
-define(['react', 'react-dom', 'react-jsonschema-form', 'text!./form.html'], function(React, ReactDOM, JSONSchemaForm, form) {
     return {
         defaults: {
             templates: {
@@ -61,45 +53,56 @@ define(['react', 'react-dom', 'react-jsonschema-form', 'text!./form.html'], func
         },
 
         initialize: function() {
+            this.bindCustomEvents();
             this.render();
+        },
+
+        bindCustomEvents: function() {
+            this.sandbox.on('sulu.header.back', function () {Mediator.emit('sulu.router.navigate', 'app-user/fronted-users');});
+            // this.sandbox.on('sulu.toolbar.delete', this.deleteContact.bind(this));
+            // this.sandbox.on('sulu.tab.dirty', this.enableSave.bind(this));
+            // this.sandbox.on('sulu.router.navigate', this.disableSave.bind(this));
+            // this.sandbox.on('sulu.toolbar.save', this.save.bind(this));
+            // this.sandbox.on('sulu.tab.saving', this.loadingSave.bind(this));
+            // this.sandbox.on('sulu.tab.data-changed', this.changeData.bind(this));
         },
 
         render: function() {
             this.$el.html(this.templates.form({translations: this.translations}));
-            var formElement = this.$el.find('#user-form')[0],
-                reactForm = JSONSchemaForm.default;
-            const e = React.createElement;
-
-            const schema = {
-                title: "Todo",
-                type: "object",
-                required: ["title"],
-                properties: {
-                    title: {type: "string", title: "Title", default: "A new task"},
-                    done: {type: "boolean", title: "Done?", default: false}
-                }
-            };
-
-            class LikeButton extends React.Component {
-                constructor(props) {
-                    super(props);
-                    this.state = { liked: false };
-                }
-
-                render() {
-                    if (this.state.liked) {
-                        return 'You liked this.';
-                    }
-
-                    return e(
-                        'button',
-                        { onClick: () => this.setState({ liked: true }) },
-                        'Like'
-                    );
-                }
-            }
-
-            ReactDOM.render(e(reactForm, {schema: schema}), formElement);
-        }
+            // var formElement = this.$el.find('#user-form')[0],
+            //     reactForm = JSONSchemaForm.default;
+            // const e = React.createElement;
+            //
+            // const schema = {
+            //     title: "Todo",
+            //     type: "object",
+            //     required: ["title"],
+            //     properties: {
+            //         title: {type: "string", title: "Title", default: "A new task"},
+            //         done: {type: "boolean", title: "Done?", default: false}
+            //     }
+            // };
+            //
+            // class LikeButton extends React.Component {
+            //     constructor(props) {
+            //         super(props);
+            //         this.state = { liked: false };
+            //     }
+            //
+            //     render() {
+            //         if (this.state.liked) {
+            //             return 'You liked this.';
+            //         }
+            //
+            //         return e(
+            //             'button',
+            //             { onClick: () => this.setState({ liked: true }) },
+            //             'Like'
+            //         );
+            //     }
+            // }
+            //
+            // ReactDOM.render(e(reactForm, {schema: schema}), formElement);
+        },
     };
 });

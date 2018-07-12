@@ -20,7 +20,10 @@
  * @author Team Delta <delta@3vjuyuan.com>
  */
 
-define(['text!./list.html'], function (list) {
+define([
+    'services/applicationuser/user-router',
+    'text!./list.html'
+], function (UserRouter, list) {
 
     var defaults = {
         templates: {
@@ -30,8 +33,10 @@ define(['text!./list.html'], function (list) {
 
     return {
         defaults: defaults,
+        stickyToolbar: true,
 
         header: {
+            noBack: true,
             title: 'application_user.user.frontend.headline',
             underline: false,
 
@@ -52,8 +57,14 @@ define(['text!./list.html'], function (list) {
         initialize: function () {
             this.render();
 
-            this.bindDomEvents();
             this.bindCustomEvents();
+        },
+
+        getListToolbarConfig: function () {
+            return {
+                el: this.$find('#list-toolbar-container'),
+                instanceName: 'frontend-users'
+            };
         },
 
         render: function () {
@@ -62,29 +73,15 @@ define(['text!./list.html'], function (list) {
             this.sandbox.sulu.initListToolbarAndList.call(this,
                 'application_user.frontend.user',
                 '/admin/api/frontends/users/fields',
+                this.getListToolbarConfig(),
                 {
-                    el: this.$find('#list-toolbar-container'),
-                    instanceName: 'frontendUser',
-                    template: this.sandbox.sulu.buttons.get({
-                        settings: {
-                            options: {
-                                dropdownItems: [
-                                    {
-                                        type: 'columnOptions'
-                                    }
-                                ]
-                            }
-                        }
-                    })
-                },
-                {
-                    el: this.sandbox.dom.find('#user-list'),
+                    el: this.sandbox.dom.find('#user-list', this.$el),
                     url: '/admin/api/frontend/users',
-                    searchInstanceName: 'frontendUser',
+                    searchInstanceName: 'frontend-users',
                     searchFields: ['username'],
                     resultKey: 'frontend-users',
-                    instanceName: 'frontendUser',
-                    actionCallback: this.toEdit.bind(this),
+                    instanceName: 'frontend-users',
+                    actionCallback: UserRouter.toEdit.bind(this, 'frontend'),
                     viewOptions: {
                         table: {
                             actionIconColumn: 'username'
@@ -94,40 +91,31 @@ define(['text!./list.html'], function (list) {
             );
         },
 
-        toEdit: function (id) {
-            this.sandbox.emit('sulu.router.navigate', 'app-user/fronted-users/edit:' + id);
-        },
-
-        toAdd: function () {
-            this.sandbox.emit('sulu.router.navigate', 'app-user/fronted-users/add');
-        },
-
-        deleteItems: function (ids) {
-            for (var i = 0, length = ids.length; i < length; i++) {
-                this.deleteItem(ids[i]);
-            }
-        },
-
-        deleteItem: function (id) {
-            this.sandbox.util.save('/admin/api/frontends/' + id + '/user', 'DELETE').then(function () {
-                this.sandbox.emit('husky.datagrid.user.record.remove', id);
-            }.bind(this));
-        },
-
-        bindDomEvents: function () {
-        },
+        // deleteItems: function (ids) {
+        //     for (var i = 0, length = ids.length; i < length; i++) {
+        //         this.deleteItem(ids[i]);
+        //     }
+        // },
+        //
+        // deleteItem: function (id) {
+        //     this.sandbox.util.save('/admin/api/frontends/' + id + '/user', 'DELETE').then(function () {
+        //         this.sandbox.emit('husky.datagrid.user.record.remove', id);
+        //     }.bind(this));
+        // },
 
         bindCustomEvents: function () {
-            this.sandbox.on('sulu.toolbar.add', this.toAdd.bind(this));
+            // Add clicked
+            this.sandbox.on('sulu.toolbar.add', UserRouter.toAdd.bind(this, 'frontend'));
 
-            this.sandbox.on('husky.datagrid.user.number.selections', function (number) {
-                var postfix = number > 0 ? 'enable' : 'disable';
-                this.sandbox.emit('sulu.header.toolbar.item.' + postfix, 'deleteSelected', false);
-            }.bind(this));
 
-            this.sandbox.on('sulu.toolbar.delete', function () {
-                this.sandbox.emit('husky.datagrid.user.items.get-selected', this.deleteItems.bind(this));
-            }.bind(this));
+            // this.sandbox.on('husky.datagrid.user.number.selections', function (number) {
+            //     var postfix = number > 0 ? 'enable' : 'disable';
+            //     this.sandbox.emit('sulu.header.toolbar.item.' + postfix, 'deleteSelected', false);
+            // }.bind(this));
+            //
+            // this.sandbox.on('sulu.toolbar.delete', function () {
+            //     this.sandbox.emit('husky.datagrid.user.items.get-selected', this.deleteItems.bind(this));
+            // }.bind(this));
         }
     };
 });
