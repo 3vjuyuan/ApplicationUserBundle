@@ -56,7 +56,6 @@ define([
 
         initialize: function () {
             this.render();
-
             this.bindCustomEvents();
         },
 

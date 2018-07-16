@@ -37,98 +37,21 @@
                 <target>后台用户管理</target>
             </trans-unit>
 
-            <trans-unit id="4" resname="user.userName">
-                <source>user.userName</source>
+            <trans-unit id="application_user.user.form.username.title" resname="application_user.user.form.username.title">
+                <source>application_user.user.form.username.title</source>
                 <target>用户名</target>
             </trans-unit>
-            <trans-unit id="5" resname="user.password">
-                <source>user.password</source>
+            <trans-unit id="application_user.user.form.password.title" resname="application_user.user.form.password.title">
+                <source>application_user.user.form.password.title</source>
                 <target>密码</target>
             </trans-unit>
-            <trans-unit id="6" resname="user.fullName">
-                <source>user.fullName</source>
-                <target>姓名</target>
+            <trans-unit id="application_user.user.form.email.title" resname="application_user.user.form.email.title">
+                <source>application_user.user.form.email.title</source>
+                <target>电子邮件</target>
             </trans-unit>
-            <trans-unit id="7" resname="user.phone">
-                <source>user.phone</source>
+            <trans-unit id="application_user.user.form.phone.title" resname="application_user.user.form.phone.title">
+                <source>application_user.user.form.phone.title</source>
                 <target>电话</target>
-            </trans-unit>
-            <trans-unit id="8" resname="user.email">
-                <source>user.email</source>
-                <target>邮箱</target>
-            </trans-unit>
-            <trans-unit id="9" resname="user.createTime">
-                <source>user.createTime</source>
-                <target>创建时间</target>
-            </trans-unit>
-            <trans-unit id="10" resname="user.updateTime">
-                <source>user.updateTime</source>
-                <target>修改时间</target>
-            </trans-unit>
-            <trans-unit id="11" resname="user.userInfo">
-                <source>user.userInfo</source>
-                <target>Json 信息</target>
-            </trans-unit>
-
-            <trans-unit id="13" resname="user.media">
-                <source>user.media</source>
-                <target>用户头像</target>
-            </trans-unit>
-            <trans-unit id="14" resname="user.passwordRepeat">
-                <source>user.passwordRepeat</source>
-                <target>确认密码</target>
-            </trans-unit>
-            <trans-unit id="15" resname="frontend.user.group.headline">
-                <source>frontend.user.group.headline</source>
-                <target>前台用户组</target>
-            </trans-unit>
-            <trans-unit id="16" resname="group.groupName">
-                <source>group.groupName</source>
-                <target>用户组名</target>
-            </trans-unit>
-            <trans-unit id="17" resname="group.groupPath">
-                <source>group.groupPath</source>
-                <target>用户组路径</target>
-            </trans-unit>
-            <trans-unit id="18" resname="group.parentId">
-                <source>group.parentId</source>
-                <target>用户组父ID</target>
-            </trans-unit>
-            <trans-unit id="19" resname="user.group">
-                <source>user.group</source>
-                <target>用户组</target>
-            </trans-unit>
-            <trans-unit id="20" resname="navigation.frontendUser.supplier">
-                <source>navigation.frontendUser.supplier</source>
-                <target>用户组</target>
-            </trans-unit>
-            <trans-unit id="21" resname="frontend.supplier.headline">
-                <source>frontend.supplier.headline</source>
-                <target>供应商</target>
-            </trans-unit>
-            <trans-unit id="22" resname="user.status">
-                <source>user.status</source>
-                <target>状态</target>
-            </trans-unit>
-            <trans-unit id="23" resname="user.statusInactive">
-                <source>user.statusInactive</source>
-                <target>未激活</target>
-            </trans-unit>
-            <trans-unit id="24" resname="user.statusActivated">
-                <source>user.statusActivated</source>
-                <target>已激活</target>
-            </trans-unit>
-            <trans-unit id="25" resname="user.statusAuthentication">
-                <source>user.statusAuthentication</source>
-                <target>已认证</target>
-            </trans-unit>
-            <trans-unit id="26" resname="supplier.userType">
-                <source>supplier.userType</source>
-                <target>供应商类型</target>
-            </trans-unit>
-            <trans-unit id="27" resname="supplier.correlationId">
-                <source>supplier.correlationId</source>
-                <target>Pinna供应商ID</target>
             </trans-unit>
         </body>
     </file>

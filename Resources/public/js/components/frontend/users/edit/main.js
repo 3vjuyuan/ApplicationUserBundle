@@ -20,16 +20,29 @@
  * @author Team Delta <delta@3vjuyuan.com>
  */
 
-define(['text!./form.html', 'services/applicationuser/user-router'], function(form, userRouter) {
+define([
+    'services/applicationuser/user-router',
+    'text!./form.html',
+    'text!./form.json',
+    'react',
+    'react-dom',
+    'react-form'
+], function(userRouter, form, userFormSchemaConfig, React, ReactDOM, JSONSchemaForm) {
+
+    'use strict';
 
     return {
         defaults: {
             templates: {
-                form: form
+                form: form,
+                userFormSchema: userFormSchemaConfig
             },
             translations: {
                 title: 'application_user.user.frontend.headline',
-                content: 'application_user.user.frontend.edit.content'
+                userForm_username_title: 'application_user.user.form.username.title',
+                userForm_password_title: 'application_user.user.form.password.title',
+                userForm_email_title: 'application_user.user.form.email.title',
+                userForm_phone_title: 'application_user.user.form.phone.title',
             }
         },
 
@@ -58,7 +71,7 @@ define(['text!./form.html', 'services/applicationuser/user-router'], function(fo
         },
 
         bindCustomEvents: function() {
-            this.sandbox.on('sulu.header.back', function () {Mediator.emit('sulu.router.navigate', 'app-user/fronted-users');});
+            this.sandbox.on('sulu.header.back', userRouter.toList.bind(this, 'frontend'));
             // this.sandbox.on('sulu.toolbar.delete', this.deleteContact.bind(this));
             // this.sandbox.on('sulu.tab.dirty', this.enableSave.bind(this));
             // this.sandbox.on('sulu.router.navigate', this.disableSave.bind(this));
@@ -69,40 +82,12 @@ define(['text!./form.html', 'services/applicationuser/user-router'], function(fo
 
         render: function() {
             this.$el.html(this.templates.form({translations: this.translations}));
-            // var formElement = this.$el.find('#user-form')[0],
-            //     reactForm = JSONSchemaForm.default;
-            // const e = React.createElement;
-            //
-            // const schema = {
-            //     title: "Todo",
-            //     type: "object",
-            //     required: ["title"],
-            //     properties: {
-            //         title: {type: "string", title: "Title", default: "A new task"},
-            //         done: {type: "boolean", title: "Done?", default: false}
-            //     }
-            // };
-            //
-            // class LikeButton extends React.Component {
-            //     constructor(props) {
-            //         super(props);
-            //         this.state = { liked: false };
-            //     }
-            //
-            //     render() {
-            //         if (this.state.liked) {
-            //             return 'You liked this.';
-            //         }
-            //
-            //         return e(
-            //             'button',
-            //             { onClick: () => this.setState({ liked: true }) },
-            //             'Like'
-            //         );
-            //     }
-            // }
-            //
-            // ReactDOM.render(e(reactForm, {schema: schema}), formElement);
+            var formElement = this.$el.find('#user-form')[0],
+                reactForm = JSONSchemaForm.default,
+                schema = JSON.parse(this.templates.userFormSchema({translations: this.translations}));
+            const e = React.createElement;
+
+            ReactDOM.render(e(reactForm, {schema: schema}), formElement);
         },
     };
 });

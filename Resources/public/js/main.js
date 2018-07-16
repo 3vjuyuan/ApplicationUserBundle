@@ -3,9 +3,9 @@ require.config({
         applicationuser: '../../applicationuser/js',
         applicationusercss: '../../applicationuser/css',
 
-        'vendor/react': '../../applicationuser/js/vendor/react',
-        'vendor/react-dom': '../../applicationuser/js/vendor/react-dom',
-        'vendor/react-form': '../../applicationuser/js/vendor/react-jsonschema-form',
+        'react': '../../applicationuser/js/vendor/react',
+        'react-dom': '../../applicationuser/js/vendor/react-dom',
+        'react-form': '../../applicationuser/js/vendor/react-jsonschema-form',
 
         'services/applicationuser/user-router': '../../applicationuser/js/services/user-router',
 

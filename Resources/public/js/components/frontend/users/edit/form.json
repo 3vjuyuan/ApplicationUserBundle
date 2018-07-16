@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": [
+    "firstName",
+    "lastName"
+  ],
+  "properties": {
+    "username": {
+      "type": "string",
+      "title": "<%= translations.userForm_username_title %>"
+    },
+    "password": {
+      "type": "string",
+      "title": "<%= translations.userForm_password_title %>",
+      "minLength": 3
+    },
+    "email": {
+      "type": "string",
+      "title": "<%= translations.userForm_email_title %>"
+    },
+    "phone": {
+      "type": "string",
+      "title": "<%= translations.userForm_phone_title %>"
+    }
+  }
+}
